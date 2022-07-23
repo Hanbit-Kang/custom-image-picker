@@ -36,9 +36,9 @@ class ImagePickerViewModel: ViewModel() {
         cursor?.let {
             while(cursor.moveToNext()) {
                 val mediaPath = cursor.getString(cursor.getColumnIndex(INDEX_MEDIA_URI))
-                imageItemList.value!!.add(ImageItem(
-                    Uri.fromFile(File(mediaPath)), false
-                ))
+                imageItemList.value!!.add(
+                    ImageItem(Uri.fromFile(File(mediaPath)), false)
+                )
             }
         }
 

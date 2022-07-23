@@ -26,6 +26,7 @@ class ImagePickerFragment : Fragment() {
         _binding = FragmentImagePickerBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
         binding.buttonListener = View.OnClickListener {
+            // Pass Uri list to fragment outside
             activity?.supportFragmentManager?.setFragmentResult(
                 URI_LIST_CHECKED,
                 bundleOf("uriList" to viewModel.getCheckedImageUriList())

@@ -17,6 +17,14 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.example.customimagepicker.databinding.FragmentPermissionBinding
 
+/**
+ * A middle fragment between home fragment and image picker fragment.
+ * To navigate to image picker fragment, navigate to here for checking
+ * all permissions required by image picker fragment.
+ * "hasAllPermissions?" --(O) - ImagePickerFragment
+ *                      `-(X) - Request permissions & "isGranted?" --(O) - ImagePickerFragment
+ *                                                                 `-(X) - Stay until all permissions are granted
+ */
 class PermissionFragment : Fragment() {
     private var _binding: FragmentPermissionBinding? = null
     private val binding get() = _binding!!

@@ -12,6 +12,10 @@ import com.example.customimagepicker.data.ImageItem
 import com.example.customimagepicker.databinding.ItemImageBinding
 import com.example.customimagepicker.viewmodel.ImagePickerViewModel
 
+/**
+ * @param parentViewModel The ImagePicker's ViewModel which holds each ImageItem
+ * whose isChecked should be updated when checkbox checked.
+ */
 class ImageAdapter(
     private val parentViewModel: ImagePickerViewModel
 ): ListAdapter<ImageItem, RecyclerView.ViewHolder>(ImageDiffCallback()) {
@@ -31,10 +35,10 @@ class ImageAdapter(
 
     private fun subscribeUi(binding: ItemImageBinding, holder: ImageViewHolder) {
         binding.checkbox.setOnCheckedChangeListener { _, isChecked ->
-            if(parentViewModel.imageItemList.value == null) return@setOnCheckedChangeListener
-
-            val position = holder.absoluteAdapterPosition
-            parentViewModel.imageItemList.value!![position].isChecked = isChecked
+            parentViewModel.imageItemList.value?.let {
+                val position = holder.absoluteAdapterPosition
+                it[position].isChecked = isChecked
+            }
         }
     }
 

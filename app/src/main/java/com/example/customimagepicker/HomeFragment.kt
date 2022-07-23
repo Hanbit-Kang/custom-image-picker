@@ -23,11 +23,12 @@ class HomeFragment : Fragment() {
             findNavController().navigate(directions)
         }
 
+        // After getting Uri list selected from ImagePicker
         activity?.supportFragmentManager?.setFragmentResultListener(URI_LIST_CHECKED, viewLifecycleOwner) { _, bundle ->
             bundle.getStringArrayList("uriList")?.let { uriList ->
                 for(uri in uriList) {
                     Log.d(TAG, uri.toString())
-                    // TODO
+                    // TODO: Whatever you want!
                 }
             }
         }
