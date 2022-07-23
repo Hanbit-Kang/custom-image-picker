@@ -18,7 +18,7 @@ class HomeFragment : Fragment() {
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.buttonListener = View.OnClickListener {
-            val directions = HomeFragmentDirections.actionHomeToImagepicker()
+            val directions = HomeFragmentDirections.actionHomeToPermission()
             findNavController().navigate(directions)
         }
 
